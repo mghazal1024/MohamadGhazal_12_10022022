@@ -1,6 +1,26 @@
 @import '../../base';
 
 .duration {
+    // display: none;
     width: 100%;
-    background-color: pink;
+    background-color: #FF0000;
+    border-radius: 5px;
+    width: 258px;
+    height: 263px;
+    position: relative;
+
+    &__title {
+        padding: 30px;
+        // position: absolute;
+    }
+    .recharts-wrapper {
+        // display: none;
+        padding: 0px;
+        position: absolute !important;
+        bottom: 0;
+    }
+    .recharts-cartesian-axis-line,
+    .recharts-cartesian-axis-tick-line {
+        display: none;
+    }
 }

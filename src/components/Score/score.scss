@@ -1,6 +1,20 @@
 @import '../../base';
 
 .score {
-    width: 100%;
+    // display: none;
+    width: 258px;
+    height: 263px;
     background-color: lightcoral;
+    border-radius: 5px;
+
+    // .recharts-wrapper {
+    //     // display: none;
+    // }
+
+    // .recharts-wrapper,
+    // .recharts-surface,
+    // .recharts-legend-wrapper {
+    //     width: 100% !important;
+    //     height: 100% !important;
+    // }
 }

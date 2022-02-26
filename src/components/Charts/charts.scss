@@ -3,18 +3,18 @@
 .charts-section {
     width: 100%;
     height: 100%;
-    background-color: green;
+    // background-color: green;
     display: grid;
     grid-template-columns: 1fr 260px;
     column-gap: 30px;
     &__charts {
-        // display: flex;
-        // flex-wrap: wrap;
-        // gap: 30px;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-        grid-gap: 30px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        // display: grid;
+        // grid-template-columns: repeat(3, 1fr);
+        // grid-template-rows: repeat(2, 1fr);
+        // grid-gap: 30px;
     }
     &__aside {
         display: flex;

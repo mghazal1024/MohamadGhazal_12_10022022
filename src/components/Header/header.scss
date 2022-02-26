@@ -2,7 +2,7 @@
 
 header {
     width: 100%;
-    // height: 90px;
+    height: 90px;
     position: relative;
     display: flex;
     background-color: $maincolor;
@@ -13,7 +13,12 @@ header {
     z-index: 100;
 
     .logo-container {
-        width: 189px;
+        height: 57px;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
     }
 
     .main-nav {

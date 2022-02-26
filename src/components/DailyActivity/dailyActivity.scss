@@ -1,7 +1,75 @@
 @import '../../base';
 
 .daily-activity {
-    width: 100%;
-    grid-column: 1/4;
-    background-color: blue;
+    // width: 100%;
+    width: 835px;
+    height: 320px;
+    // grid-column: 1/4;
+    // background-color: blue;
+    background-color: $light;
+    // position: relative;
+    border-radius: 5px;
+
+    .bar-graph {
+        position: relative;
+        &__title {
+            position: absolute;
+            height: 50px;
+            // border: 1px solid blue;
+            display: flex;
+            align-items: center;
+            top: 0;
+            left: 25px;
+        }
+    }
+    
+    .recharts-wrapper {
+        // border: 2px solid green;
+        position: relative;
+        // padding-top: 50px;
+        padding: 50px 0px 0px 20px;
+    }
+    
+    // .recharts-wrapper,
+    // .recharts-surface {
+    //     width: 100% !important;
+    //     height: 100% !important;
+    // }
+    
+    .recharts-legend-wrapper {
+        // border: 1px solid red;
+        width: 100% !important;
+        left: unset !important;
+        bottom: unset !important;
+        top: 0;
+        right: 25px;
+        max-height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        
+    }
+    .recharts-default-legend {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        height: 50px;
+    }
+    .recharts-legend-item {
+        display: flex !important;
+        align-items: center;
+        svg.recharts-surface {
+            max-width: 10px;
+        }
+    }
 }
+
+
+
+// .recharts-bar-rectangle {
+//     path {
+//         radius: 2;
+//     }
+// }
