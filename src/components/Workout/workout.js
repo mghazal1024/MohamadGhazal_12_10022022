@@ -6,40 +6,28 @@ import { RadarChart, Legend, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar }
 
 const data = [
     {
-      "subject": "Math",
+      "subject": "Intensité",
       "A": 120,
-      "B": 110,
-      "fullMark": 150
     },
     {
-      "subject": "Chinese",
+      "subject": "Vitesse",
       "A": 98,
-      "B": 130,
-      "fullMark": 150
     },
     {
-      "subject": "English",
+      "subject": "Force",
       "A": 86,
-      "B": 130,
-      "fullMark": 150
     },
     {
-      "subject": "Geography",
+      "subject": "Endurance",
       "A": 99,
-      "B": 100,
-      "fullMark": 150
     },
     {
-      "subject": "Physics",
+      "subject": "Energie",
       "A": 85,
-      "B": 90,
-      "fullMark": 150
     },
     {
-      "subject": "History",
+      "subject": "Cardio",
       "A": 65,
-      "B": 85,
-      "fullMark": 150
     }
   ]
   
@@ -50,9 +38,8 @@ const Workout = () => {
               <RadarChart outerRadius={90} width={258} height={263} data={data}>
                 <PolarGrid />
                 <PolarAngleAxis dataKey="subject" />
-                <PolarRadiusAxis angle={30} domain={[0, 150]} />
-                <Radar name="Mike" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
-                <Radar name="Lily" dataKey="B" stroke="#82ca9d" fill="#82ca9d" fillOpacity={0.6} />
+                <PolarRadiusAxis angle={30} domain={[0, 120]} />
+                <Radar name="Mike" dataKey="A" fill="rgba(255, 1, 1, 0.7)" fillOpacity={0.6} />
                 {/* <Legend /> */}
             </RadarChart>
         </div>

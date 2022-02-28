@@ -27,7 +27,7 @@
         // border: 2px solid green;
         position: relative;
         // padding-top: 50px;
-        padding: 50px 0px 0px 20px;
+        padding: 80px 0px 0px 20px;
     }
     
     // .recharts-wrapper,
@@ -62,6 +62,47 @@
         align-items: center;
         svg.recharts-surface {
             max-width: 10px;
+        }
+    }
+
+    .bar-graph {
+        // .recharts-tooltip-wrapper {
+        //     p {
+        //         color: white !important;
+        //     }
+        // }
+        // .recharts-tooltip-item-list {
+        //     span {
+        //         color: white !important;
+        //         font-size: 7px;
+        //         font-weight: 500;
+        //         line-height: 24px;
+        //     }
+        // }
+        // .recharts-tooltip-item-name,
+        // .recharts-tooltip-item-separator {
+        //     display: none;
+        // }
+        // .recharts-default-tooltip {
+        //     background-color: red !important;
+        //     border: 0 !important;
+        // }
+        // .recharts-tooltip-label {
+        //     color: white !important;
+        // }
+        &__tooltip {
+            background-color: red;
+            font-weight: 39px;
+            height: 63px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        &__tooltip-text {
+            // font-size: 7px;
+            // line-height: 24px;
+            color: white;
+            padding: 10px 20px;
         }
     }
 }

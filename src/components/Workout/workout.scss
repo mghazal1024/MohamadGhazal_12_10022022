@@ -1,24 +1,21 @@
 @import '../../base';
 
 .workout {
-    // display: none;
-    // width: 100%;
-    // height: 100%;
     width: 258px;
     height: 263px;
     background-color: $maincolor;
     border-radius: 5px;
 
-    // .recharts-text {
-    //     tspan {
-    //         color: white !important;
-    //     }
-    // }
 
-    // .recharts-wrapper,
-    // .recharts-surface,
-    // .recharts-legend-wrapper {
-    //     width: 100% !important;
-    //     height: 100% !important;
-    // }
+    .recharts-text {
+        tspan {
+            fill: white;
+            font-size: 12px;
+            line-height: 24px;
+        }
+    }
+
+    .recharts-polar-radius-axis {
+        display: none;
+    }
 }

@@ -4,43 +4,44 @@ import './score.scss'
 import { PieChart, Pie, Sector, Cell } from "recharts";
 
 const data = [
-  { name: "Group A", value: 400 }
+  { name: "Group A", value: 100 }
 ];
 
   const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 
 const Score = () => {
     return (
-        <div className='score'>                                    
-            {/* <RadialBarChart 
-                width={258} 
-                height={263} 
-                innerRadius="10%" 
-                outerRadius="100%" 
-                data={data} 
-                startAngle={180} 
-                endAngle={0}
-            >
-                <RadialBar minAngle={15} label={{ fill: '#666', position: 'insideStart' }} background clockWise={true} dataKey='uv' />
-                <Legend iconSize={10} width={120} height={140} layout='vertical' verticalAlign='middle' align="right" />
-                <Tooltip />
-            </RadialBarChart> */}
+        <div className='score'>          
             <PieChart width={258} height={263}>
               <Pie
                 data={data}
-                cx={120}
-                cy={200}
-                innerRadius={60}
+                nameKey="name"
+                innerRadius={65}
                 outerRadius={80}
-                fill="#8884d8"
-                paddingAngle={5}
+                paddingAngle={1}
                 dataKey="value"
+                startAngle={90}
+                endAngle={450}
               >
                 {data.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                  <Cell key={`cell-${index}`} fill="#FF0000" cornerRadius="50%" />
+                ))}
+              </Pie>
+              <Pie
+                data={data}
+                innerRadius={0}
+                outerRadius={65}
+                paddingAngle={0}
+              >
+                {data.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill="#fff"/>
                 ))}
               </Pie>
             </PieChart>
+            <div className='score__progress'>
+              <h3>12%</h3>
+              <p className='body-text body-text--large'>de votre objectif</p>
+            </div>
         </div>
     )
 }
