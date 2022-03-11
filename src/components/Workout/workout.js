@@ -1,7 +1,9 @@
-import React, {PureComponent} from 'react'
+import React, {useState, useEffect} from 'react'
 import './workout.scss'
 
 import { RadarChart, Legend, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar } from 'recharts';
+
+
 
 
 const data = [
@@ -32,7 +34,50 @@ const data = [
   ]
   
 
-const Workout = () => {
+const Workout = (props) => {
+
+  // const {performanceData} = props;
+  // // {performanceData && console.log(performanceData)};
+
+  // const [data, setData] = useState([]);
+
+  // useEffect(() => {
+  //   setData(performanceData)
+  //   console.log(data)
+  // },[])
+
+  // const [userDataPerformance, setUserDataPerformance] = useState();
+
+  
+  
+//   const userData = [];
+
+//  useEffect(() => {
+//    fetch('http://localhost:3000/user/12/performance')
+//     .then(res => {
+//       return res.json();
+//     })
+//     .then(data => {
+//       console.log(data)
+//       // setUserDataPerformance(data);
+//       for( let item in data.data.kind) {
+//         console.log(item);
+//       }
+//     })
+//  }, [])
+
+
+
+
+  // const data = [];
+  // for(let item of performanceData) {
+  //   console.log(item);
+  // }
+
+
+
+ 
+
     return (
         <div className='workout'>
               <RadarChart outerRadius={90} width={258} height={263} data={data}>

@@ -10,35 +10,44 @@ import DailyActivity from '../DailyActivity/dailyActivity';
 import Duration from '../Duration/duration';
 import Workout from '../Workout/workout';
 import Score from '../Score/score';
-const Charts = () => {
+
+
+const Charts = (props) => {
+
+    const { performanceData, score, calories, proteins, carbohydrate, fat } = props;
+
     return(
         <>
             <section className='charts-section'>
                 <div className='charts-section__charts'>
                     <DailyActivity></DailyActivity>
                     <Duration></Duration>
-                    <Workout></Workout>
-                    <Score></Score>
+                    <Workout
+                        performanceData = {performanceData}
+                    ></Workout>
+                    <Score
+                        score = {score}
+                    ></Score>
                 </div>
                 <aside className='charts-section__aside'>
                     <BurnCount
                         icon = {fire}
-                        total = "1,930kCal"
+                        total = {`${calories}kCal`}
                         type = "Calories"
                     ></BurnCount>
                     <BurnCount
                         icon = {chicken}
-                        total = "155g"
+                        total = {`${proteins}g`}
                         type = "Proteines"
                     ></BurnCount>
                     <BurnCount
                         icon = {apple}
-                        total = "290g"
+                        total = {`${carbohydrate}g`}
                         type = "Glucides"
                     ></BurnCount>
                     <BurnCount
                         icon = {cheesburger}
-                        total = "50g"
+                        total = {`${fat}g`}
                         type = "Lipides"
                     ></BurnCount>
                 </aside>

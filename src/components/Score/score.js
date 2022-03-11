@@ -1,15 +1,18 @@
 import React, {PureComponent} from 'react'
 import './score.scss'
 
-import { PieChart, Pie, Sector, Cell } from "recharts";
+import { PieChart, Pie, Cell } from "recharts";
 
-const data = [
-  { name: "Group A", value: 100 }
-];
 
-  const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
+const Score = ( props ) => {
 
-const Score = () => {
+  const {score} = props
+
+  const data = [
+    { name: "Group A", value: score }
+  ];
+
+
     return (
         <div className='score'>          
             <PieChart width={258} height={263}>
@@ -21,7 +24,7 @@ const Score = () => {
                 paddingAngle={1}
                 dataKey="value"
                 startAngle={90}
-                endAngle={450}
+                endAngle={90 + (score * 360)}
               >
                 {data.map((entry, index) => (
                   <Cell key={`cell-${index}`} fill="#FF0000" cornerRadius="50%" />
@@ -39,7 +42,7 @@ const Score = () => {
               </Pie>
             </PieChart>
             <div className='score__progress'>
-              <h3>12%</h3>
+              <h3>{score * 100}%</h3>
               <p className='body-text body-text--large'>de votre objectif</p>
             </div>
         </div>
