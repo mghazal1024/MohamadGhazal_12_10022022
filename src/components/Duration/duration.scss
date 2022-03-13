@@ -11,13 +11,15 @@
     justify-content: center;
 
     &__title {
-        padding: 30px;
+        padding: 20px 30px 30px 20px;
         color: rgba(255,255,255, 50%);
     }
     .recharts-wrapper {
         padding: 0px;
         position: absolute !important;
-        bottom: 0;
+        // bottom: 0;
+        top: 50%;
+        transform: translateY(-50%);
     }
     .recharts-cartesian-axis-line,
     .recharts-cartesian-axis-tick-line {
@@ -63,7 +65,7 @@
         display: flex;
         width: 100%;
         position: absolute;
-        bottom: 20px;
+        bottom: 10px;
         list-style: none;
         justify-content: space-between;
         padding: 0 10px;

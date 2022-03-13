@@ -14,16 +14,20 @@ import Score from '../Score/score';
 
 const Charts = (props) => {
 
-    const { performanceData, score, calories, proteins, carbohydrate, fat } = props;
+    const { score, calories, proteins, carbohydrate, fat, activity, duration, performance } = props;
 
     return(
         <>
             <section className='charts-section'>
                 <div className='charts-section__charts'>
-                    <DailyActivity></DailyActivity>
-                    <Duration></Duration>
+                    <DailyActivity
+                        activity = {activity}
+                    ></DailyActivity>
+                    <Duration
+                        duration = {duration}
+                    ></Duration>
                     <Workout
-                        performanceData = {performanceData}
+                        performance = {performance}
                     ></Workout>
                     <Score
                         score = {score}

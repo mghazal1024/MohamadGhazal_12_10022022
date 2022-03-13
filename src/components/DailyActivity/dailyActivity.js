@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import './dailyActivity.scss';
 
 import { 
@@ -8,64 +8,13 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend, 
-  ResponsiveContainer} from 'recharts';
-
-const data = [
-    {
-      "day": "1",
-      "poids": 70,
-      "calories": 71
-    },
-    {
-      "day": "2",
-      "poids": 50,
-      "calories": 65
-    },
-    {
-      "day": "3",
-      "poids": 43,
-      "calories": 34
-    },
-    {
-      "day": "4",
-      "poids": 67,
-      "calories": 69
-    },
-    {
-      "day": "5",
-      "poids": 20,
-      "calories": 45
-    },
-    {
-      "day": "6",
-      "poids": 40,
-      "calories": 63
-    },
-    {
-      "day": "7",
-      "poids": 21,
-      "calories": 58
-    },
-    {
-      "day": "8",
-      "poids": 16,
-      "calories": 49
-    },
-    {
-      "day": "9",
-      "poids": 21,
-      "calories": 49
-    },
-    {
-      "day": "10",
-      "poids": 10,
-      "calories": 69
-    }
-  ]
+  Legend} from 'recharts';
 
 
-const DailyActivity = () => {
+const DailyActivity = (props) => {
+
+  const { activity } = props
+
     return (
         <div className='daily-activity'>
             <div className='bar-graph'>
@@ -78,7 +27,7 @@ const DailyActivity = () => {
               <BarChart
                 width={835}
                 height={280}
-                data={data}>
+                data={activity}>
                   <CartesianGrid strokeDasharray="3" vertical={false} horizontalPoints={[10,100]} />
                   <XAxis dataKey="day" />
                   <YAxis orientation='right' />
@@ -89,7 +38,7 @@ const DailyActivity = () => {
                     }}
                   />
                   <Legend />
-                  <Bar dataKey="poids" fill="#282D30" legendType='circle' barSize={7} radius={[50, 50, 0, 0]}/>
+                  <Bar dataKey="kilogram" fill="#282D30" legendType='circle' barSize={7} radius={[50, 50, 0, 0]}/>
                   <Bar dataKey="calories" fill="#E60000" legendType='circle' barSize={7} radius={[50, 50, 0, 0]}/>
               </BarChart>
             </div>

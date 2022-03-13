@@ -1,49 +1,18 @@
-import React, {PureComponent} from 'react'
+import React from 'react'
 import './duration.scss'
 
-import { LineChart, Line, Tooltip, XAxis } from "recharts";
+import { LineChart, Line, Tooltip } from "recharts";
 
 
-const data = [
-  {
-    name: "L",
-    pv: 100
-  },
-  {
-    name: "M",
-    pv: 130
-  },
-  {
-    name: "M",
-    pv: 200
-  },
-  {
-    name: "J",
-    pv: 80
-  },
-  {
-    name: "V",
-    pv: 110
-  },
-  {
-    name: "S",
-    pv: 210
-  },
-  {
-    name: "S",
-    pv: 300
-  }
-];
-  
-                        
 
+const Duration = ( props ) => {
 
-const Duration = () => {
+  const { duration } = props;
+
     return (
         <div className='duration'>
           <p className='duration__title'>Durée moyenne des sessions</p>
-          <LineChart width={258} height={263} data={data}
-          // margin={{ top: 20, right: 12, bottom: 0, left: 12 }}
+          <LineChart width={258} height={203} data={duration}
           >
           <Tooltip
             content={<CustomTooltip />}
@@ -52,12 +21,10 @@ const Duration = () => {
               strokeWidth: "100%"
               
             }}
-            // cursor={<CustomCursor />}
           />
-            {/* <XAxis dataKey="name" /> */}
             <Line
               type="monotone"
-              dataKey="pv"
+              dataKey="sessionLength"
               stroke="rgba(255, 255, 255, 0.6)"
               strokeWidth={2}
               dot={false}
@@ -85,7 +52,6 @@ const CustomTooltip = ({ active, payload }) => {
   if (active && payload) {
       return (
         <>
-          {/* <div className='duration__tooltip'></div> */}
         <p className='duration__tooltip'>{`${payload[0].value} min`}</p>
         </>
       );
@@ -93,12 +59,6 @@ const CustomTooltip = ({ active, payload }) => {
 
     return null;
 }
-
-// const CustomCursor = () => {
-//   return (
-//     <div className='duration__cursor'></div>
-//   )
-// }
 
 
 export default Duration

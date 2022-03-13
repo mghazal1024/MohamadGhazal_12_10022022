@@ -1,91 +1,46 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import './workout.scss'
 
-import { RadarChart, Legend, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar } from 'recharts';
+import { RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar } from 'recharts';
 
-
-
-
-const data = [
-    {
-      "subject": "Intensité",
-      "A": 120,
-    },
-    {
-      "subject": "Vitesse",
-      "A": 98,
-    },
-    {
-      "subject": "Force",
-      "A": 86,
-    },
-    {
-      "subject": "Endurance",
-      "A": 99,
-    },
-    {
-      "subject": "Energie",
-      "A": 85,
-    },
-    {
-      "subject": "Cardio",
-      "A": 65,
-    }
-  ]
-  
 
 const Workout = (props) => {
 
-  // const {performanceData} = props;
-  // // {performanceData && console.log(performanceData)};
+  const { performance } = props
+  console.log(performance.data)
+  console.log(performance.kind)
 
-  // const [data, setData] = useState([]);
+  const performanceKind = Object.keys(performance.kind);
+  const kinds = []
 
-  // useEffect(() => {
-  //   setData(performanceData)
-  //   console.log(data)
-  // },[])
-
-  // const [userDataPerformance, setUserDataPerformance] = useState();
-
-  
-  
-//   const userData = [];
-
-//  useEffect(() => {
-//    fetch('http://localhost:3000/user/12/performance')
-//     .then(res => {
-//       return res.json();
-//     })
-//     .then(data => {
-//       console.log(data)
-//       // setUserDataPerformance(data);
-//       for( let item in data.data.kind) {
-//         console.log(item);
-//       }
-//     })
-//  }, [])
+  performanceKind.map((key, index) => {
+    kinds.push(performance.kind[key])
+  })
 
 
+  const allActivities = [];
 
+  for (let kind of kinds) {
+    console.log(kinds.indexOf(kind))
+    for (let activity of performance.data) {
+      if(kinds.indexOf(kind) === activity.kind - 1) {
+        allActivities.push({
+          activity: kind,
+          value: activity.value
+        })
+      }
+    }
+  }
 
-  // const data = [];
-  // for(let item of performanceData) {
-  //   console.log(item);
-  // }
-
-
-
+  console.log(allActivities)
  
-
     return (
         <div className='workout'>
-              <RadarChart outerRadius={90} width={258} height={263} data={data}>
+              <RadarChart outerRadius={90} width={258} height={263} data={allActivities}>
                 <PolarGrid />
-                <PolarAngleAxis dataKey="subject" />
+                <PolarAngleAxis dataKey="activity" />
                 <PolarRadiusAxis angle={30} domain={[0, 120]} />
-                <Radar name="Mike" dataKey="A" fill="rgba(255, 1, 1, 0.7)" fillOpacity={0.6} />
-                {/* <Legend /> */}
+                <Radar name="Mike" dataKey="value" fill="rgba(255, 1, 1, 0.7)" fillOpacity={0.6} />
             </RadarChart>
         </div>
     )
