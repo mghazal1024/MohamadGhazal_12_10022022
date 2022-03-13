@@ -17,6 +17,18 @@ const DailyActivity = (props) => {
 
   const { activity } = props
 
+  let activityData = [];
+
+  for(let item of activity) {
+    activityData.push({
+      calories: item.calories,
+      day: activity.indexOf(item) + 1,
+      kilogram: item.kilogram
+    })
+  }
+
+  console.log(activityData)
+
     return (
         <div className='daily-activity'>
             <div className='bar-graph'>
@@ -29,7 +41,7 @@ const DailyActivity = (props) => {
               <BarChart
                 width={835}
                 height={280}
-                data={activity}>
+                data={activityData}>
                   <CartesianGrid strokeDasharray="3" vertical={false} horizontalPoints={[10,100]} />
                   <XAxis dataKey="day" />
                   <YAxis orientation='right' />

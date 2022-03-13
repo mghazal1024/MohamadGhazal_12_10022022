@@ -1,13 +1,9 @@
 @import '../../base';
 
 .daily-activity {
-    // width: 100%;
     width: 835px;
     height: 320px;
-    // grid-column: 1/4;
-    // background-color: blue;
     background-color: $light;
-    // position: relative;
     border-radius: 5px;
 
     .bar-graph {
@@ -15,7 +11,6 @@
         &__title {
             position: absolute;
             height: 50px;
-            // border: 1px solid blue;
             display: flex;
             align-items: center;
             top: 0;
@@ -24,20 +19,15 @@
     }
     
     .recharts-wrapper {
-        // border: 2px solid green;
         position: relative;
-        // padding-top: 50px;
         padding: 80px 0px 0px 20px;
     }
-    
-    // .recharts-wrapper,
-    // .recharts-surface {
-    //     width: 100% !important;
-    //     height: 100% !important;
-    // }
+
+    .recharts-text {
+        fill: $gray;;
+    }
     
     .recharts-legend-wrapper {
-        // border: 1px solid red;
         width: 100% !important;
         left: unset !important;
         bottom: unset !important;
@@ -60,57 +50,29 @@
     .recharts-legend-item {
         display: flex !important;
         align-items: center;
+        &:nth-child(1) {
+            margin-right: 30px !important;
+        }
+        &-text {
+            color: $gray !important;
+        }
         svg.recharts-surface {
             max-width: 10px;
         }
     }
 
     .bar-graph {
-        // .recharts-tooltip-wrapper {
-        //     p {
-        //         color: white !important;
-        //     }
-        // }
-        // .recharts-tooltip-item-list {
-        //     span {
-        //         color: white !important;
-        //         font-size: 7px;
-        //         font-weight: 500;
-        //         line-height: 24px;
-        //     }
-        // }
-        // .recharts-tooltip-item-name,
-        // .recharts-tooltip-item-separator {
-        //     display: none;
-        // }
-        // .recharts-default-tooltip {
-        //     background-color: red !important;
-        //     border: 0 !important;
-        // }
-        // .recharts-tooltip-label {
-        //     color: white !important;
-        // }
         &__tooltip {
             background-color: red;
             font-weight: 39px;
-            height: 63px;
+            // height: 63px;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
         &__tooltip-text {
-            // font-size: 7px;
-            // line-height: 24px;
             color: white;
             padding: 10px 20px;
         }
     }
 }
-
-
-
-// .recharts-bar-rectangle {
-//     path {
-//         radius: 2;
-//     }
-// }

@@ -34,7 +34,7 @@
     &__cursor {
         width: 258px;
         height: 263px;
-        background-color: blue;
+        // background-color: blue;
         position: absolute !important;
         top: 0;
         z-index: 100;
@@ -44,20 +44,20 @@
         position: absolute;
         top: 0;
         left: 0;
-        transform: translateX(50%);
+        transform: translateX(45%);
     }
 
     .recharts-line {
         path {
             width: 258px !important;
-        height: 263px !important;
+            height: 263px !important;
         }
     }
 
     &__tooltip {
         background-color: white;
         padding:7px 7px;
-        font-size: 8px;
+        font-size: 12px;
         line-height: 24px;
     }
 
