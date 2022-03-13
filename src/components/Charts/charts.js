@@ -1,6 +1,7 @@
 import React from 'react';
 import BurnCount from '../BurnCount/burnCount';
 import './charts.scss';
+import propTypes from 'prop-types';
 
 import fire from '../../images/fire.svg';
 import chicken from '../../images/chicken.svg';
@@ -61,3 +62,15 @@ const Charts = (props) => {
 }
 
 export default Charts
+
+
+Charts.propTypes = {
+    score: propTypes.number,
+    calories: propTypes.string,
+    proteins: propTypes.number,
+    carbohydrate: propTypes.number,
+    fat: propTypes.number,
+    activity: propTypes.array,
+    duration: propTypes.array,
+    performance: propTypes.object
+  }

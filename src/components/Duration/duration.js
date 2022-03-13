@@ -1,5 +1,6 @@
 import React from 'react'
 import './duration.scss'
+import propTypes from 'prop-types';
 
 import { LineChart, Line, Tooltip } from "recharts";
 
@@ -62,3 +63,7 @@ const CustomTooltip = ({ active, payload }) => {
 
 
 export default Duration
+
+Duration.propTypes = {
+  duration: propTypes.array
+}

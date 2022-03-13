@@ -25,7 +25,6 @@ const App = () => {
 
     const getUrl = (id, option) => {
       let url = option ? `http://localhost:3000/user/${id}/${option}` : `http://localhost:3000/user/${id}`
-      console.log(url)
       return url
     }
 
@@ -64,9 +63,8 @@ const App = () => {
           duration: userDurationRes.data.sessions,
           performance: userPeformanceRes.data
         })
-        console.log(state.performance)
       } catch (error) {
-        console.log('error while stting state', error);
+        console.error('error while stting state', error);
       }
     };
 

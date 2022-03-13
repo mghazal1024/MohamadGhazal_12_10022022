@@ -1,8 +1,10 @@
 import React from 'react'
 import './burnCount.scss'
+import propTypes from 'prop-types';
 
 const BurnCount = ( props ) => {
     const { icon, total, type } = props;
+
     return (
         <div className={`burn-count__container burn-count__container--${type}`}>
             <div className='burn-count__icon'>
@@ -17,3 +19,9 @@ const BurnCount = ( props ) => {
 }
 
 export default BurnCount
+
+BurnCount.propTypes = {
+    icon: propTypes.string,
+    total: propTypes.string,
+    type: propTypes.string
+  }

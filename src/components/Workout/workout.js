@@ -1,5 +1,6 @@
 import React from 'react'
 import './workout.scss'
+import propTypes from 'prop-types';
 
 import { RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar } from 'recharts';
 
@@ -7,8 +8,6 @@ import { RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar } from 'r
 const Workout = (props) => {
 
   const { performance } = props
-  console.log(performance.data)
-  console.log(performance.kind)
 
   const performanceKind = Object.keys(performance.kind);
   const kinds = []
@@ -21,7 +20,6 @@ const Workout = (props) => {
   const allActivities = [];
 
   for (let kind of kinds) {
-    console.log(kinds.indexOf(kind))
     for (let activity of performance.data) {
       if(kinds.indexOf(kind) === activity.kind - 1) {
         allActivities.push({
@@ -31,12 +29,15 @@ const Workout = (props) => {
       }
     }
   }
-
-  console.log(allActivities)
  
     return (
         <div className='workout'>
-              <RadarChart outerRadius={90} width={258} height={263} data={allActivities}>
+              <RadarChart
+                outerRadius={90}
+                width={258}
+                height={263}
+                data={allActivities}
+                >
                 <PolarGrid />
                 <PolarAngleAxis dataKey="activity" />
                 <PolarRadiusAxis angle={30} domain={[0, 120]} />
@@ -47,3 +48,7 @@ const Workout = (props) => {
 }
 
 export default Workout
+
+Workout.propTypes = {
+  performance: propTypes.object
+}

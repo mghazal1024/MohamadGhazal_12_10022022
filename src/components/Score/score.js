@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react'
 import './score.scss'
-
+import propTypes from 'prop-types';
 import { PieChart, Pie, Cell } from "recharts";
 
 
@@ -50,3 +50,7 @@ const Score = ( props ) => {
 }
 
 export default Score
+
+Score.propTypes = {
+  score: propTypes.number
+}

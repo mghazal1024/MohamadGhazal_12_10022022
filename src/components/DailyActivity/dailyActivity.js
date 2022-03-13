@@ -1,5 +1,7 @@
 import React from 'react';
 import './dailyActivity.scss';
+import propTypes from 'prop-types';
+
 
 import { 
   BarChart,
@@ -61,4 +63,12 @@ const CustomTooltip = ({ active, payload }) => {
 }
 
 
+
 export default DailyActivity
+
+
+
+
+DailyActivity.prototype = {
+  activity: propTypes.array
+}

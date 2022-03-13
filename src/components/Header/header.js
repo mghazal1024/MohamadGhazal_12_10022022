@@ -1,6 +1,7 @@
 import React from 'react';
 import './header.scss';
 import logo from '../../images/logo.svg'
+import propTypes from 'prop-types';
 
 
 const Header = () => {
@@ -22,3 +23,7 @@ const Header = () => {
 }
 
 export default Header
+
+Header.propTypes = {
+    logo: propTypes.string
+}

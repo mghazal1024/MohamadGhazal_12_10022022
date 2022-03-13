@@ -1,5 +1,6 @@
 import React from 'react'
 import './bodyHeader.scss'
+import propTypes from 'prop-types'
 
 const BodyHeader = ( props ) => {
 
@@ -14,3 +15,8 @@ const BodyHeader = ( props ) => {
 }
 
 export default BodyHeader
+
+
+BodyHeader.propTypes = {
+    firstName: propTypes.string
+  }
