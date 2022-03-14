@@ -15,6 +15,8 @@ import {
 
 const DailyActivity = (props) => {
 
+    // code qui est cassé
+
   const { activity } = props
 
   let activityData = [];
@@ -27,7 +29,8 @@ const DailyActivity = (props) => {
     })
   }
 
-  console.log(activityData)
+    ///----- find de code cassé
+
 
     return (
         <div className='daily-activity'>
@@ -41,7 +44,8 @@ const DailyActivity = (props) => {
               <BarChart
                 width={835}
                 height={280}
-                data={activityData}>
+                data={activityData} // -- comment cette ligne pour repliquer le bug
+                >
                   <CartesianGrid strokeDasharray="3" vertical={false} horizontalPoints={[10,100]} />
                   <XAxis dataKey="day" />
                   <YAxis orientation='right' />

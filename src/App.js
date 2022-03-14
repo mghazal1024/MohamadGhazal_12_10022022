@@ -28,12 +28,14 @@ const App = () => {
       return url
     }
 
-    let userId = 12;
+    let userId = 18;
 
     const fetchData = async () => {
       try {
         const userInfo = await fetch(getUrl(userId));
         const userInfoRes = await userInfo.json();
+
+        console.log(userInfoRes)
 
 
         const userActivity = await fetch(getUrl(userId, 'activity'))
