@@ -7,31 +7,31 @@ import { RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar } from 'r
 
 const Workout = (props) => {
 
-  // code qui est cassé
   const { performance } = props
 
-  const performanceKind = Object.keys(performance.kind);
-  const kinds = []
-
-  performanceKind.map((key, index) => {
-    kinds.push(performance.kind[key])
-  })
-
-
+  const kinds = [];
   const allActivities = [];
 
-  for (let kind of kinds) {
-    for (let activity of performance.data) {
-      if(kinds.indexOf(kind) === activity.kind - 1) {
-        allActivities.push({
-          activity: kind,
-          value: activity.value
-        })
+  const getPerformanceData = (performance) => {
+    const performanceKind = Object.keys(performance.kind);
+
+    performanceKind.map((key, index) => {
+      kinds.push(performance.kind[key])
+    })
+
+    for (let kind of kinds) {
+      for (let activity of performance.data) {
+        if(kinds.indexOf(kind) === activity.kind - 1) {
+          allActivities.push({
+            activity: kind,
+            value: activity.value
+          })
+        }
       }
     }
   }
 
-  ///----- find de code cassé
+  performance && getPerformanceData(performance)
  
     return (
         <div className='workout'>
@@ -39,7 +39,7 @@ const Workout = (props) => {
                 outerRadius={90}
                 width={258}
                 height={263}
-                data={allActivities} // -- comment cette ligne pour repliquer le bug
+                data={allActivities}
                 >
                 <PolarGrid />
                 <PolarAngleAxis dataKey="activity" />

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useReducer} from 'react'
 import './App.scss';
 import dataFetch from './dataFetch';
 import BodyHeader from './components/BodyHeader/bodyHeader';
@@ -7,19 +7,42 @@ import Charts from './components/Charts/charts';
 import Header from './components/Header/header'
 import SideMenu from './components/SideMenu/sideMenu';
 
+const initialState = {
+  firstName: null,
+  score: null,
+  activity: null,
+  duration: null,
+  performance: null,
+  calories: null,
+  proteins: null,
+  carbohydrate: null,
+  fat: null
+}
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'UPDATE_STATE':
+      return {
+        firstName: action.firstName,
+        score: action.score,
+        activity: action.activity,
+        duration: action.duration,
+        performance: action.performance,
+        calories: action.calories,
+        proteins: action.proteins,
+        carbohydrate: action.carbohydrate,
+        fat: action.fat
+      }
+    default:
+      return state
+  }
+}
+
 const App = () => {
 
-  const [state, setState] = useState({
-    firstName: null,
-    score: null,
-    calories: null,
-    proteins: null,
-    carbohydrate: null,
-    fat: null,
-    activity: null,
-    duration: null,
-    performance: null
-  })
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  
 
   useEffect(() => {
 
@@ -28,15 +51,20 @@ const App = () => {
       return url
     }
 
-    let userId = 18;
+    let userId = 12;
 
     const fetchData = async () => {
       try {
+        const getScore = () => {
+          if(userInfoRes.data.todayScore) {
+            return userInfoRes.data.todayScore
+          } else if (userInfoRes.data.score) {
+            return userInfoRes.data.score
+          }
+        }
+
         const userInfo = await fetch(getUrl(userId));
         const userInfoRes = await userInfo.json();
-
-        console.log(userInfoRes)
-
 
         const userActivity = await fetch(getUrl(userId, 'activity'))
         const userActivityRes = await userActivity.json();
@@ -47,31 +75,29 @@ const App = () => {
         const userPeformance = await fetch(getUrl(userId, 'performance'))
         const userPeformanceRes = await userPeformance.json();
 
-        const getScore = () => {
-          if(userInfoRes.data.todayScore) {
-            return userInfoRes.data.todayScore
-          } else if (userInfoRes.data.score) {
-            return userInfoRes.data.score
-          }
-        }
-        setState({
-          score: getScore(),
+        dispatch({
+          type: 'UPDATE_STATE',
           firstName: userInfoRes.data.userInfos.firstName,
+          score: getScore(),
+          activity: userActivityRes.data.sessions,
+          duration: userDurationRes.data.sessions,
+          performance: userPeformanceRes.data,
           calories: userInfoRes.data.keyData.calorieCount,
           proteins: userInfoRes.data.keyData.proteinCount,
           carbohydrate: userInfoRes.data.keyData.carbohydrateCount,
           fat: userInfoRes.data.keyData.lipidCount,
-          activity: userActivityRes.data.sessions,
-          duration: userDurationRes.data.sessions,
-          performance: userPeformanceRes.data
         })
+        
       } catch (error) {
         console.error('error while stting state', error);
       }
     };
 
     fetchData()
+    
+    
   }, [])
+
 
   return (
     <div className="app">
@@ -90,7 +116,7 @@ const App = () => {
                 fat = {state.fat}
                 activity = {state.activity}
                 duration = {state.duration}
-                performance = {state.performance && state.performance}
+                performance = {state.performance}
               ></Charts>
             </div>
           </section>

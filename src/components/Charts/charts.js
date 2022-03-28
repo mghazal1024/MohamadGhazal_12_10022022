@@ -17,6 +17,7 @@ const Charts = (props) => {
 
     const { score, calories, proteins, carbohydrate, fat, activity, duration, performance } = props;
 
+    
     return(
         <>
             <section className='charts-section'>

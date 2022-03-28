@@ -15,21 +15,25 @@ import {
 
 const DailyActivity = (props) => {
 
-    // code qui est cassé
 
   const { activity } = props
 
+
   let activityData = [];
 
-  for(let item of activity) {
-    activityData.push({
-      calories: item.calories,
-      day: activity.indexOf(item) + 1,
-      kilogram: item.kilogram
-    })
+
+  const getActivityData = (activity) => {
+    for(let item of activity) {
+      activityData.push({
+        calories: item.calories,
+        day: activity.indexOf(item) + 1,
+        kilogram: item.kilogram
+      })
+    }
   }
 
-    ///----- find de code cassé
+  activity && getActivityData(activity);
+
 
 
     return (
@@ -44,7 +48,7 @@ const DailyActivity = (props) => {
               <BarChart
                 width={835}
                 height={280}
-                data={activityData} // -- comment cette ligne pour repliquer le bug
+                data={activityData}
                 >
                   <CartesianGrid strokeDasharray="3" vertical={false} horizontalPoints={[10,100]} />
                   <XAxis dataKey="day" />

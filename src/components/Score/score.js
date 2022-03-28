@@ -1,4 +1,4 @@
-import React, {PureComponent} from 'react'
+import React from 'react'
 import './score.scss'
 import propTypes from 'prop-types';
 import { PieChart, Pie, Cell } from "recharts";
