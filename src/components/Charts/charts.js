@@ -13,6 +13,27 @@ import Workout from '../Workout/workout';
 import Score from '../Score/score';
 
 
+
+/**
+ * Component take a number of elements to pass the information as props
+ * @typedef PropType 
+ * @property {number} score
+ * @property {string} calories
+ * @property {number} proteins
+ * @property {number} carbohydrate
+ * @property {number} fat
+ * @property {array} activity
+ * @property {array} duration
+ * @property {object} performance
+ */
+
+/**
+ * @param {PropType} props
+ * @returns {JSX}
+ */
+
+
+
 const Charts = (props) => {
 
     const { score, calories, proteins, carbohydrate, fat, activity, duration, performance } = props;

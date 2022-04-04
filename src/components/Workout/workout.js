@@ -5,6 +5,17 @@ import propTypes from 'prop-types';
 import { RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar } from 'recharts';
 
 
+  /**
+ * Component takes an object to display the information of performance on the chart
+ * @typedef PropType 
+ * @property {object} performance
+ */
+
+/**
+ * @param {PropType} props
+ * @returns {JSX}
+ */
+
 const Workout = (props) => {
 
   const { performance } = props

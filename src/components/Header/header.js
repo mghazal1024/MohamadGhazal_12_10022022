@@ -4,6 +4,19 @@ import logo from '../../images/logo.svg'
 import propTypes from 'prop-types';
 
 
+  /**
+ * Component takes a string to display the logo
+ * @typedef PropType 
+ * @property {string} logo
+ */
+
+/**
+ * @param {PropType} props
+ * @returns {JSX}
+ */
+
+
+
 const Header = () => {
     return (
         <header>

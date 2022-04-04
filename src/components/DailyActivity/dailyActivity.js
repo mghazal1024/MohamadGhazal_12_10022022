@@ -13,6 +13,19 @@ import {
   Legend} from 'recharts';
 
 
+  /**
+ * Component takes an array which contains the information to display on the graph
+ * @typedef PropType 
+ * @property {array} activity
+ */
+
+/**
+ * @param {PropType} props
+ * @returns {JSX}
+ */
+
+
+
 const DailyActivity = (props) => {
 
 

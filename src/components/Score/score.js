@@ -4,6 +4,17 @@ import propTypes from 'prop-types';
 import { PieChart, Pie, Cell } from "recharts";
 
 
+  /**
+ * Component takes an number to display the current progress score
+ * @typedef PropType 
+ * @property {number} score
+ */
+
+/**
+ * @param {PropType} props
+ * @returns {JSX}
+ */
+
 const Score = ( props ) => {
 
   const {score} = props

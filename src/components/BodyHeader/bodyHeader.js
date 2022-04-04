@@ -2,6 +2,17 @@ import React from 'react'
 import './bodyHeader.scss'
 import propTypes from 'prop-types'
 
+/**
+ * Component takes a string to display the first name on the header
+ * @typedef PropType 
+ * @property {string} firstName
+ */
+
+/**
+ * @param {PropType} props
+ * @returns {JSX}
+ */
+
 const BodyHeader = ( props ) => {
 
     const {firstName} = props 

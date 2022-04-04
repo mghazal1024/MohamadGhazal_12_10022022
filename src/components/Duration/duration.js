@@ -4,7 +4,16 @@ import propTypes from 'prop-types';
 
 import { LineChart, Line, Tooltip } from "recharts";
 
+  /**
+ * Component takes an array which contains the information to display on the graph
+ * @typedef PropType 
+ * @property {array} duration
+ */
 
+/**
+ * @param {PropType} props
+ * @returns {JSX}
+ */
 
 const Duration = ( props ) => {
 

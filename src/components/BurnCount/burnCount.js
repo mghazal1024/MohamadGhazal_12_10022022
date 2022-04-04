@@ -2,6 +2,19 @@ import React from 'react'
 import './burnCount.scss'
 import propTypes from 'prop-types';
 
+/**
+ * Component takes strings to display the information
+ * @typedef PropType 
+ * @property {string} icon
+ * @property {string} total
+ * @property {string} type
+ */
+
+/**
+ * @param {PropType} props
+ * @returns {JSX}
+ */
+
 const BurnCount = ( props ) => {
     const { icon, total, type } = props;
 
